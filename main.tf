@@ -50,7 +50,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  version = "~>1.3.3"
+  version = "~>3.8.2"
   debug   = true
 
   kubernetes {
