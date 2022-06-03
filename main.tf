@@ -41,7 +41,7 @@ data "google_client_config" "default" {
 }
 
 provider "kubernetes" {
-  version          = "~>1.11.0"
+  version          = "~>1.11.5"
   load_config_file = false
 
   host                   = "https://${module.cluster.cluster_endpoint}"
@@ -50,7 +50,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  version = "~>1.3.0"
+  version = "~>1.3.3"
   debug   = true
 
   kubernetes {
