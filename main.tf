@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------------------
 terraform {
 //  required_version = ">= 0.12.0, < 0.15"
-  required_version = ">= 0.12.0, < 1.1.0"
+  required_version = ">= 0.12.0, < 2.2.0"
 }
 
 // ----------------------------------------------------------------------------
@@ -13,12 +13,12 @@ terraform {
 // ----------------------------------------------------------------------------
 provider "google" {
   project = var.gcp_project
-  version = ">= 3.46.0"
+  version = ">= 3.46.0, < 4.0.0"
 }
 
 provider "google-beta" {
   project = var.gcp_project
-  version = ">= 3.46.0"
+  version = ">= 3.46.0, < 4.0.0"
 }
 
 provider "random" {
