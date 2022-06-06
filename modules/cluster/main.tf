@@ -35,6 +35,7 @@ resource "google_container_cluster" "jx_cluster" {
   logging_service           = var.logging_service
   monitoring_service        = var.monitoring_service
   default_max_pods_per_node = var.max_pods_per_node
+  min_master_version        = "1.21.11-gke.1100"
   node_version              = "1.21.11-gke.1100"
 
   dynamic "private_cluster_config" {
