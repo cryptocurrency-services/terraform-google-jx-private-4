@@ -134,15 +134,15 @@ resource "google_container_cluster" "jx_cluster" {
   }
 }
 
-//module "jx-health" {
-//  count  = var.jx2 && var.kuberhealthy ? 0 : 1
-//  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
-////  source = "github.com/cryptocurrency-services/terraform-jx-health"
-//
-//  depends_on = [
-//    google_container_cluster.jx_cluster
-//  ]
-//}
+module "jx-health" {
+  count  = var.jx2 && var.kuberhealthy ? 0 : 1
+  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
+//  source = "github.com/cryptocurrency-services/terraform-jx-health"
+
+  depends_on = [
+    google_container_cluster.jx_cluster
+  ]
+}
 
 // ----------------------------------------------------------------------------
 // Add main Jenkins X Kubernetes namespace
