@@ -35,6 +35,7 @@ resource "google_container_cluster" "jx_cluster" {
   logging_service           = var.logging_service
   monitoring_service        = var.monitoring_service
   default_max_pods_per_node = var.max_pods_per_node
+  node_version              = "1.21.11-gke.1100"
 
   dynamic "private_cluster_config" {
     for_each = local.enable_private_cluster_config ? [{
@@ -136,8 +137,8 @@ resource "google_container_cluster" "jx_cluster" {
 
 module "jx-health" {
   count  = var.jx2 && var.kuberhealthy ? 0 : 1
-//  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
-  source = "github.com/cryptocurrency-services/terraform-jx-health"
+  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
+//  source = "github.com/cryptocurrency-services/terraform-jx-health"
 
   depends_on = [
     google_container_cluster.jx_cluster
